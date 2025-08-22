@@ -32,4 +32,9 @@ public final class Light implements ColorPalette{
     public Color getAccent() {
         return new Color(255, 193, 7);
     }
+
+    @Override
+    public Color getHoverBackground() {
+        return new Color(240, 240, 240);
+    }
 }

@@ -32,4 +32,9 @@ public final class Dark implements ColorPalette{
     public Color getAccent() {
         return new Color(255, 160, 0);
     }
+
+    @Override
+    public Color getHoverBackground() {
+        return new Color(30, 30, 30);
+    }
 }

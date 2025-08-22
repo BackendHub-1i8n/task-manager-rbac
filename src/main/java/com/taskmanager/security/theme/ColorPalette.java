@@ -10,4 +10,5 @@ public sealed interface ColorPalette permits Dark, Light{
     Color getPrimary();
     Color getSecondary();
     Color getAccent();
+    Color getHoverBackground();
 }

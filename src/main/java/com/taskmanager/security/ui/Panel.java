@@ -18,8 +18,8 @@ public class Panel extends JPanel implements ThemeListener {
         applyTheme(newPalette);
         repaint();
     }
-
-    private void applyTheme(ColorPalette palette) {
+    @Override
+    public void applyTheme(ColorPalette palette) {
         setBackground(palette.getBackground());
         setForeground(palette.getForeground());
     }

@@ -3,6 +3,7 @@ package com.taskmanager.security.app;
 import com.taskmanager.security.theme.Dark;
 import com.taskmanager.security.theme.Light;
 import com.taskmanager.security.theme.ThemeManager;
+import com.taskmanager.security.ui.Menu.MenuBar;
 import com.taskmanager.security.ui.Panel;
 import com.taskmanager.security.ui.Text;
 
@@ -24,27 +25,7 @@ public class MainWindow extends JFrame {
 
     private void initUI() {
         // Add UI components like menus, panels, etc.
-        JMenuBar menuBar = new JMenuBar();
-        JMenu fileMenu = new JMenu("File");
-        JMenuItem exitItem = new JMenuItem("Exit");
-
-        // style menuBar
-        menuBar.setBackground(Color.DARK_GRAY);
-        menuBar.setForeground(Color.WHITE);
-        menuBar.setUI(
-                new javax.swing.plaf.basic.BasicMenuBarUI() {
-                    public void paint(Graphics g, JComponent c) {
-                        g.setColor(Color.DARK_GRAY);
-                        g.fillRect(0, 0, c.getWidth(), c.getHeight());
-                    }
-                }
-        );
-
-        exitItem.addActionListener(e -> System.exit(0));
-
-        fileMenu.add(exitItem);
-        menuBar.add(fileMenu);
-
+        MenuBar menuBar = new MenuBar();
         setJMenuBar(menuBar);
     }
 
