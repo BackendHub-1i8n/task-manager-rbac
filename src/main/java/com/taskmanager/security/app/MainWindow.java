@@ -1,8 +1,11 @@
 package com.taskmanager.security.app;
 
+import com.taskmanager.security.enums.ButtonColorVariants;
+import com.taskmanager.security.enums.ButtonSize;
 import com.taskmanager.security.theme.Dark;
 import com.taskmanager.security.theme.Light;
 import com.taskmanager.security.theme.ThemeManager;
+import com.taskmanager.security.ui.Button.Button;
 import com.taskmanager.security.ui.Menu.MenuBar;
 import com.taskmanager.security.ui.Panel;
 import com.taskmanager.security.ui.Text;
@@ -19,8 +22,10 @@ public class MainWindow extends JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setUndecorated(true);
         setVisible(true);
+        setLayout(new BorderLayout());
         initUI();
         changeTheme();
+        buildButtonPanel();
     }
 
     private void initUI() {
@@ -73,6 +78,43 @@ public class MainWindow extends JFrame {
         // Update the UI to reflect the new theme
         themePanel.setBackground(ThemeManager.getInstance().getColorPalette().getBackground());
         themePanel.setForeground(ThemeManager.getInstance().getColorPalette().getForeground());
-        this.add(themePanel);
+        this.add(themePanel, BorderLayout.CENTER);
+        this.revalidate();
+        this.repaint();
+    }
+
+    public void buildButtonPanel() {
+        JButton btn1 = Button.builder()
+                .text("Guardar")
+                .variant(ButtonColorVariants.PRIMARY)
+                .size(ButtonSize.MEDIUM)
+                .onClick(() -> System.out.println("Aceptar clickeado"))
+                .build();
+
+        JButton btn2 = Button.builder()
+                .text("Cancelar")
+                .variant(ButtonColorVariants.SECONDARY)
+                .size(ButtonSize.SMALL)
+                .build();
+
+        JButton btn3 = Button.builder()
+                .text("Eliminar")
+                .variant(ButtonColorVariants.DANGER)
+                .size(ButtonSize.LARGE)
+                .build();
+
+        JButton btn4 = Button.builder()
+                .text("Info")
+                .variant(ButtonColorVariants.INFO)
+                .size(ButtonSize.LARGE)
+                .build();
+
+        Panel buttonPanel = new Panel();
+        buttonPanel.add(btn1);
+        buttonPanel.add(btn2);
+        buttonPanel.add(btn3);
+        buttonPanel.add(btn4);
+        buttonPanel.setPreferredSize(new Dimension(300, 300));
+        this.add(buttonPanel, BorderLayout.SOUTH);
     }
 }

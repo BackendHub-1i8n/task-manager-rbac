@@ -1,6 +1,8 @@
 package com.taskmanager.security.theme;
 
-import java.awt.Color;
+import com.taskmanager.security.contracts.ButtonVariants;
+
+import java.awt.*;
 
 public sealed interface ColorPalette permits Dark, Light{
     String getName();
@@ -11,4 +13,15 @@ public sealed interface ColorPalette permits Dark, Light{
     Color getSecondary();
     Color getAccent();
     Color getHoverBackground();
+
+    ButtonVariants getPrimaryButtonColor();
+    ButtonVariants getSecondaryButtonColor();
+    ButtonVariants getSuccessButtonColor();
+    ButtonVariants getDangerButtonColor();
+    ButtonVariants getWarningButtonColor();
+    ButtonVariants getInfoButtonColor();
+
+    Dimension getSmallButtonSize();
+    Dimension getMediumButtonSize();
+    Dimension getLargeButtonSize();
 }
